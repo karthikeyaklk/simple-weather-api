@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeatherAI | Live Weather Forecast</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-icon">✦</span><span>Weather<span class="brand-accent">AI</span></span></a>
+      <span class="live-pill"><span class="live-dot"></span> LIVE WEATHER</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">WEATHER INTELLIGENCE</p>
+      <h1>Understand the sky.<br><span>Prepare for tomorrow.</span></h1>
+      <p class="intro-copy">Check current conditions and the five-day forecast for cities around the world.</p>
+    </section>
+
+    <section class="search-panel panel">
+      <div class="search-label"><span class="mini-icon">⌖</span> FIND A LOCATION</div>
+      <form id="search-form" class="search-row">
+        <input id="city-input" type="text" value="Visakhapatnam" placeholder="Enter a city, e.g. Hyderabad" aria-label="City name" required>
+        <button type="submit" id="search-button">Get weather <span>↗</span></button>
+      </form>
+      <p id="status" class="status" aria-live="polite">Ready to fetch live weather.</p>
+    </section>
+
+    <section class="weather-grid">
+      <article class="panel current-panel">
+        <div class="panel-heading"><div><p class="eyebrow">CURRENT CONDITIONS</p><h2 id="place-name">Visakhapatnam, India</h2><p id="updated-at" class="muted">Waiting for live data…</p></div><div id="weather-icon" class="weather-icon">☁</div></div>
+        <div class="temperature-line"><span id="temperature">--</span><span class="degree">°C</span></div>
+        <p id="condition" class="condition">Loading conditions…</p>
+        <div class="metric-grid">
+          <div class="metric"><span class="metric-icon">◌</span><span class="metric-label">Humidity</span><strong id="humidity">--%</strong></div>
+          <div class="metric"><span class="metric-icon">↗</span><span class="metric-label">Wind speed</span><strong id="wind">-- km/h</strong></div>
+          <div class="metric"><span class="metric-icon">⌁</span><span class="metric-label">Pressure</span><strong id="pressure">-- hPa</strong></div>
+          <div class="metric"><span class="metric-icon">☂</span><span class="metric-label">Precipitation</span><strong id="precipitation">-- mm</strong></div>
+        </div>
+      </article>
+
+      <article class="panel forecast-panel">
+        <div class="panel-heading"><div><p class="eyebrow">NEXT 5 DAYS</p><h2>Forecast outlook</h2></div><span class="subtle-tag">Open-Meteo</span></div>
+        <div id="forecast-list" class="forecast-list"><p class="muted">Forecast will appear after loading.</p></div>
+      </article>
+    </section>
+
+    <footer>WeatherAI classroom project <span>•</span> Weather data provided by Open-Meteo.</footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
